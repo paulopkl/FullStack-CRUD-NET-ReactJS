@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  postgres_db:
+    image: postgres:15-alpine
+    restart: always
+    container_name: postgres_db
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: driver_user
+      POSTGRES_PASSWORD: DR1V3R_PA55
+      POSTGRES_DB: driver_db
+      PGDATA: /var/lib/postgresql/data/pgdata
+    volumes:
+      - ./docker/database/data:/var/lib/postgresql/data
