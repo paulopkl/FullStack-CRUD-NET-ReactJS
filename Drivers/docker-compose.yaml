@@ -13,4 +13,4 @@ services:
       POSTGRES_DB: driver_db
       PGDATA: /var/lib/postgresql/data/pgdata
     volumes:
-      - ./docker/database/data:/var/lib/postgresql/data
+      - ./.docker/database/data:/var/lib/postgresql/data

@@ -1,0 +1,51 @@
+// Set up Postgres Database
+> docker compose up -d
+
+// Create Web API project
+> dotnet new webapi -n Backend
+
+// Create Web API Tests project
+> dotnet new xunit -n Backend.Tests
+
+// Create Solution
+> dotnet new sln -n Backend
+
+// Add Web API to solution
+> dotnet sln Backend.sln add Backend/Backend.csproj
+
+// Add Web API Tests to solution
+> dotnet sln Backend.sln add Backend.Tests/Backend.Tests.csproj
+
+// Restore Web API project
+> cd Backend
+> dotnet restore
+
+// Run migrations and update database in Web API project
+> cd Backend
+> dotnet ef database update
+
+// Build Web API project
+> cd Backend
+> dotnet build
+
+// RUN Web API project
+> cd Backend
+> dotnet run
+
+// Restore Web API Tests project
+> cd Backend.Tests
+> dotnet restore
+
+// Build Web API project
+> cd Backend.Tests
+> dotnet build
+
+####################################
+
+// Create new controller in Web API application 
+> cd Backend
+> dotnet new controller -n Controllers -na Drivers.Controllers -name DriversController
+// dotnet aspnet-codegenerator controller -name DriverController -async -api -m DriverEntity -dc DataContext -outDir Controllers
+
+
+dotnet add package Moq
